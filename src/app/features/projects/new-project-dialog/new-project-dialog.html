@@ -1,0 +1,69 @@
+<ng-container *transloco="let t">
+	<div class="hub-modal__header">
+		<h2>{{ t('projects.newTitle') }}</h2>
+	</div>
+
+	<div class="hub-modal__body">
+		<hub-stepper
+			[backLabel]="t('common.back')"
+			[continueLabel]="t('common.next')"
+			[submitLabel]="t('projects.create')"
+			(completed)="submit()"
+		>
+			<hub-step [title]="t('projects.stepDetails')">
+				<form [formGroup]="details" class="dialog-form">
+					<hub-input formControlName="name" [label]="t('projects.name')" [required]="true" />
+					<hub-input formControlName="client" [label]="t('projects.client')" [required]="true" />
+					<hub-select
+						formControlName="status"
+						[label]="t('projects.status')"
+						[items]="statusOptions()"
+						bindLabel="label"
+						bindValue="value"
+					/>
+				</form>
+			</hub-step>
+
+			<hub-step [title]="t('projects.stepTeam')" [disabled]="!detailsValid()">
+				<form [formGroup]="team" class="dialog-form">
+					<hub-select
+						formControlName="ownerId"
+						[label]="t('projects.owner')"
+						[items]="peopleResource.value() ?? []"
+						bindLabel="name"
+						bindValue="id"
+						[required]="true"
+					/>
+					<hub-input formControlName="budget" type="number" [label]="t('projects.budget')" [required]="true" />
+				</form>
+			</hub-step>
+
+			<hub-step [title]="t('projects.stepDates')" [disabled]="!teamValid()">
+				<form [formGroup]="dates" class="dialog-form">
+					<hub-datepicker
+						formControlName="startDate"
+						[label]="t('projects.startDate')"
+						[required]="true"
+						[locale]="locale()"
+						[firstDayOfWeek]="1"
+						[labels]="datepickerLabels()"
+					/>
+					<hub-datepicker
+						formControlName="dueDate"
+						[label]="t('projects.dueDate')"
+						[required]="true"
+						[locale]="locale()"
+						[firstDayOfWeek]="1"
+						[labels]="datepickerLabels()"
+					/>
+				</form>
+			</hub-step>
+		</hub-stepper>
+	</div>
+
+	<div class="hub-modal__footer">
+		<button hubButton variant="ghost" color="primary" (click)="activeModal.dismiss('cancel')">
+			{{ t('common.cancel') }}
+		</button>
+	</div>
+</ng-container>

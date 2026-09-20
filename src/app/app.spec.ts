@@ -6,6 +6,7 @@ import { App } from './app';
 import { routes } from './app.routes';
 import { LanguageStore } from './core/i18n/language-store';
 import { en, es } from './testing/translations';
+import { provideTestingHubUi } from './testing/test-providers';
 
 describe('App shell', () => {
 	beforeEach(async () => {
@@ -19,7 +20,7 @@ describe('App shell', () => {
 					preloadLangs: true
 				})
 			],
-			providers: [provideRouter(routes)]
+			providers: [provideRouter(routes), ...provideTestingHubUi()]
 		}).compileComponents();
 	});
 

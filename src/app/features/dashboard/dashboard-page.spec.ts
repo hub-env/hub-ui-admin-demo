@@ -4,6 +4,7 @@ import { TranslocoTestingModule } from '@jsverse/transloco';
 import { DEMO_DATABASE_OPTIONS, DemoDatabase } from '../../core/data/demo-database';
 import { en, es } from '../../testing/translations';
 import { DashboardPage } from './dashboard-page';
+import { provideTestingHubUi } from '../../testing/test-providers';
 
 describe('DashboardPage', () => {
 	beforeEach(async () => {
@@ -17,7 +18,7 @@ describe('DashboardPage', () => {
 					preloadLangs: true
 				})
 			],
-			providers: [provideRouter([]), { provide: DEMO_DATABASE_OPTIONS, useValue: { minDelay: 0, maxDelay: 0 } }]
+			providers: [provideRouter([]), ...provideTestingHubUi()]
 		}).compileComponents();
 	});
 

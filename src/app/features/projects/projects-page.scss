@@ -1,0 +1,17 @@
+.page-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: var(--hub-sys-gap-3);
+	margin-block-end: var(--hub-sys-gap-4);
+
+	h1 {
+		margin: 0;
+	}
+
+	p {
+		margin: var(--hub-sys-gap-1) 0 0;
+		color: var(--hub-sys-text-secondary);
+	}
+}

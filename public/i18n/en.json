@@ -17,7 +17,10 @@
 		"calendar": "Calendar"
 	},
 	"common": {
-		"comingSoon": "This screen lands in a later step of the plan."
+		"comingSoon": "This screen lands in a later step of the plan.",
+		"cancel": "Cancel",
+		"back": "Back",
+		"next": "Next"
 	},
 	"dashboard": {
 		"subtitle": "How the twelve projects are doing this week.",
@@ -52,5 +55,68 @@
 		"complete": "Met",
 		"active": "At risk",
 		"pending": "Pending"
+	},
+	"HUB": {
+		"SEARCH": "search",
+		"CLEAR_SEARCH": "clear search",
+		"LOADING": "loading",
+		"NO_RESULTS_FOUND": "no results found",
+		"ERROR_OCURRED": "something went wrong",
+		"FIRST": "first",
+		"PREVIOUS": "previous",
+		"NEXT": "next",
+		"LAST": "last",
+		"PAGE": "page",
+		"ROWS_PER_PAGE": "rows per page",
+		"SHOWING_X_OF_Y_ROWS": "showing {{amount}} of {{total}} rows",
+		"FROM": "from",
+		"TO": "to",
+		"APPLY": "apply",
+		"CLEAR": "clear",
+		"CLEAN_FILTERS": "clear filters",
+		"ADD_RULE": "add rule",
+		"REMOVE_RULE": "remove rule",
+		"MATCH_ALL": "match all",
+		"MATCH_ANY": "match any",
+		"SELECT_ONE": "select one",
+		"TRUE": "yes",
+		"FALSE": "no",
+		"DRAG_SORTABLE_ITEM": "drag to reorder"
+	},
+	"projects": {
+		"subtitle": "Everything in the portfolio, paged by the server.",
+		"new": "New project",
+		"newTitle": "New project",
+		"stepDetails": "Details",
+		"stepTeam": "Team",
+		"stepDates": "Dates",
+		"code": "Code",
+		"name": "Name",
+		"client": "Client",
+		"status": "Status",
+		"owner": "Owner",
+		"budget": "Budget",
+		"startDate": "Start",
+		"dueDate": "Due",
+		"progress": "Progress",
+		"archive": "Archive",
+		"archived": "{{count}} project(s) archived.",
+		"create": "Create project",
+		"created": "{{name}} is on the list."
+	},
+	"projectStatus": {
+		"discovery": "Discovery",
+		"active": "Active",
+		"on-hold": "On hold",
+		"delivered": "Delivered"
+	},
+	"datepicker": {
+		"openCalendar": "Open calendar",
+		"previousMonth": "Previous month",
+		"nextMonth": "Next month",
+		"previousYear": "Previous year",
+		"nextYear": "Next year",
+		"today": "Today",
+		"clear": "Clear"
 	}
 }

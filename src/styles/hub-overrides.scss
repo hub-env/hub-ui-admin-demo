@@ -1,0 +1,20 @@
+/**
+ * Temporary bridges for libraries whose own defaults do not follow the
+ * ng-hub-ui-ds dark theme. Each one works around a gap written down as a
+ * library task and should disappear when that gap is closed, so keep this file
+ * short and never put house styling in it.
+ *
+ * hub-ui-table falls back to literal whites — `--hub-ref-color-white` for the
+ * cells, the toolbar and the clear-filters button, `--hub-ref-surface-2` for a
+ * disabled paginator link — and no theme moves a reference token. In the dark
+ * theme that leaves light text on white. Pointing each one at the design
+ * system's surfaces is what the table should be doing itself.
+ */
+hub-ui-table,
+hub-table {
+	--hub-table-bg: var(--hub-sys-surface-elevated);
+	--hub-table-container-bg: var(--hub-sys-surface-elevated);
+	--hub-table-filter-control-bg: var(--hub-sys-surface-page);
+	--hub-paginator-select-bg: var(--hub-sys-surface-page);
+	--hub-paginator-link-disabled-bg: var(--hub-sys-surface-page);
+}

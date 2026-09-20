@@ -1,4 +1,10 @@
+// Sheets the libraries ask to be loaded once: the shared field chrome for
+// ng-hub-ui-forms, and the tooltip that lives on <body>, out of reach of any
+// component's own styles.
+@use 'ng-hub-ui-forms/styles';
+@use 'ng-hub-ui-utils/styles/tooltip';
 @use 'styles/app-icons';
+@use 'styles/hub-overrides';
 
 /**
  * Global sheet. It holds only what cannot live in a component: the brand
@@ -11,6 +17,9 @@
 
 :root {
 	--hub-sys-color-primary: #7c3aed;
+	// Native controls — select, checkbox, scrollbars — take their colours from
+	// this and nothing else; without it they stay white on the dark theme.
+	color-scheme: light;
 }
 
 // Dark only needs a lighter violet to keep its contrast on dark surfaces.
@@ -18,6 +27,7 @@
 // one variable re-themes the whole family.
 :root[data-theme='dark'] {
 	--hub-sys-color-primary: #a78bfa;
+	color-scheme: dark;
 }
 
 html,

@@ -17,7 +17,10 @@
 		"calendar": "Calendario"
 	},
 	"common": {
-		"comingSoon": "Esta pantalla llega en un paso posterior del plan."
+		"comingSoon": "Esta pantalla llega en un paso posterior del plan.",
+		"cancel": "Cancelar",
+		"back": "Atrás",
+		"next": "Siguiente"
 	},
 	"dashboard": {
 		"subtitle": "Cómo van los doce proyectos esta semana.",
@@ -52,5 +55,68 @@
 		"complete": "Cumplido",
 		"active": "En riesgo",
 		"pending": "Pendiente"
+	},
+	"HUB": {
+		"SEARCH": "buscar",
+		"CLEAR_SEARCH": "limpiar la búsqueda",
+		"LOADING": "cargando",
+		"NO_RESULTS_FOUND": "no hay resultados",
+		"ERROR_OCURRED": "algo ha fallado",
+		"FIRST": "primera",
+		"PREVIOUS": "anterior",
+		"NEXT": "siguiente",
+		"LAST": "última",
+		"PAGE": "página",
+		"ROWS_PER_PAGE": "filas por página",
+		"SHOWING_X_OF_Y_ROWS": "mostrando {{amount}} de {{total}} filas",
+		"FROM": "desde",
+		"TO": "hasta",
+		"APPLY": "aplicar",
+		"CLEAR": "limpiar",
+		"CLEAN_FILTERS": "quitar los filtros",
+		"ADD_RULE": "añadir regla",
+		"REMOVE_RULE": "quitar la regla",
+		"MATCH_ALL": "cumplir todas",
+		"MATCH_ANY": "cumplir alguna",
+		"SELECT_ONE": "elige una",
+		"TRUE": "sí",
+		"FALSE": "no",
+		"DRAG_SORTABLE_ITEM": "arrastra para reordenar"
+	},
+	"projects": {
+		"subtitle": "Toda la cartera, paginada desde el servidor.",
+		"new": "Nuevo proyecto",
+		"newTitle": "Nuevo proyecto",
+		"stepDetails": "Datos",
+		"stepTeam": "Equipo",
+		"stepDates": "Fechas",
+		"code": "Código",
+		"name": "Nombre",
+		"client": "Cliente",
+		"status": "Estado",
+		"owner": "Responsable",
+		"budget": "Presupuesto",
+		"startDate": "Inicio",
+		"dueDate": "Entrega",
+		"progress": "Avance",
+		"archive": "Archivar",
+		"archived": "Se han archivado {{count}} proyecto(s).",
+		"create": "Crear proyecto",
+		"created": "{{name}} ya está en la lista."
+	},
+	"projectStatus": {
+		"discovery": "Exploración",
+		"active": "Activo",
+		"on-hold": "En pausa",
+		"delivered": "Entregado"
+	},
+	"datepicker": {
+		"openCalendar": "Abrir el calendario",
+		"previousMonth": "Mes anterior",
+		"nextMonth": "Mes siguiente",
+		"previousYear": "Año anterior",
+		"nextYear": "Año siguiente",
+		"today": "Hoy",
+		"clear": "Limpiar"
 	}
 }
