@@ -1,0 +1,133 @@
+.page-header {
+	margin-block-end: var(--hub-sys-gap-4);
+
+	h1 {
+		margin: 0;
+	}
+
+	p {
+		margin: var(--hub-sys-gap-1) 0 0;
+		color: var(--hub-sys-text-secondary);
+	}
+}
+
+.stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	gap: var(--hub-sys-gap-3);
+	margin-block-end: var(--hub-sys-gap-4);
+}
+
+.panels {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	gap: var(--hub-sys-gap-3);
+	align-items: start;
+}
+
+.panel {
+	padding: var(--hub-sys-gap-3);
+	border: 1px solid var(--hub-sys-border-color-default);
+	border-radius: var(--hub-sys-radius-lg);
+	background: var(--hub-sys-surface-elevated);
+
+	h2 {
+		margin: 0 0 var(--hub-sys-gap-3);
+		font-size: var(--hub-ref-font-size-lg);
+	}
+
+	&__item-title {
+		margin: 0;
+		font-size: var(--hub-ref-font-size-base);
+		font-weight: var(--hub-ref-font-weight-medium);
+	}
+
+	&__item-note {
+		margin: 0;
+		color: var(--hub-sys-text-secondary);
+		font-size: var(--hub-ref-font-size-sm);
+	}
+}
+
+.overdue,
+.activity {
+	display: flex;
+	flex-direction: column;
+	gap: var(--hub-sys-gap-2);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.overdue {
+	&__row {
+		display: flex;
+		align-items: center;
+		gap: var(--hub-sys-gap-2);
+	}
+
+	&__main {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		min-inline-size: 0;
+	}
+
+	&__title {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&__project {
+		color: var(--hub-sys-text-secondary);
+		font-size: var(--hub-ref-font-size-sm);
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.activity {
+	&__row {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--hub-sys-gap-2);
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		min-inline-size: 0;
+	}
+
+	&__subject {
+		font-weight: var(--hub-ref-font-weight-medium);
+	}
+
+	&__meta {
+		color: var(--hub-sys-text-tertiary);
+		font-size: var(--hub-ref-font-size-sm);
+	}
+}
+
+.state {
+	color: var(--hub-sys-text-secondary);
+
+	&--error {
+		display: flex;
+		align-items: center;
+		gap: var(--hub-sys-gap-3);
+		padding: var(--hub-sys-gap-3);
+		border: 1px solid var(--hub-sys-color-danger-border-subtle);
+		border-radius: var(--hub-sys-radius-lg);
+		background: var(--hub-sys-color-danger-subtle);
+		color: var(--hub-sys-color-danger-emphasis);
+
+		p {
+			margin: 0;
+		}
+	}
+}

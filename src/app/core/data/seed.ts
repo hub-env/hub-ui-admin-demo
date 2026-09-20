@@ -1,4 +1,6 @@
 import {
+	ActivityAction,
+	ActivityEntry,
 	CalendarEvent,
 	CalendarEventKind,
 	DemoData,
@@ -76,6 +78,8 @@ const TASK_TITLES = [
 	'Agree the date format',
 	'Trim the bundle'
 ];
+
+const ACTIVITY_ACTIONS: readonly ActivityAction[] = ['created', 'moved', 'commented', 'completed'];
 
 const MILESTONE_TITLES = ['Kick-off', 'Design freeze', 'Beta with the client', 'Content complete', 'Go live'];
 
@@ -184,7 +188,22 @@ export function createDemoData(options: SeedOptions = {}): DemoData {
 		}
 	}
 
-	return { people, projects, tasks, milestones, events };
+	// The feed needs its own record: a task carries no history of who touched it.
+	const activity: ActivityEntry[] = [];
+	for (let index = 0; index < 14; index++) {
+		const task = tasks[Math.floor(random() * tasks.length)];
+		activity.push({
+			id: `activity-${index + 1}`,
+			personId: people[Math.floor(random() * people.length)].id,
+			action: ACTIVITY_ACTIONS[Math.floor(random() * ACTIVITY_ACTIONS.length)],
+			projectId: task.projectId,
+			subject: task.title,
+			at: addHours(anchor, -Math.floor(random() * 120)).toISOString()
+		});
+	}
+	activity.sort((left, right) => right.at.localeCompare(left.at));
+
+	return { people, projects, tasks, milestones, events, activity };
 }
 
 /** Mulberry32: small, fast and stable across engines, which is all this needs. */

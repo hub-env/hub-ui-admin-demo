@@ -18,5 +18,39 @@
 	},
 	"common": {
 		"comingSoon": "This screen lands in a later step of the plan."
+	},
+	"dashboard": {
+		"subtitle": "How the twelve projects are doing this week.",
+		"summary": "Summary",
+		"onTime": "Delivered on time",
+		"onTimeNote": "Milestones met of those already due",
+		"activeProjects": "Active projects",
+		"activeProjectsNote": "Out of twelve in the portfolio",
+		"overdue": "Overdue tasks",
+		"needsAttention": "Needs attention",
+		"allClear": "All clear",
+		"weekHours": "Hours in flight",
+		"weekHoursNote": "Of {{capacity}} hours the team has this week — {{used}}% booked",
+		"milestones": "Upcoming milestones",
+		"overdueTasks": "Running late",
+		"activity": "Recent activity",
+		"daysLate": "{{days}}d late",
+		"capacity": "Capacity"
+	},
+	"activity": {
+		"created": "{{name}} created",
+		"moved": "{{name}} moved",
+		"commented": "{{name}} commented on",
+		"completed": "{{name}} completed"
+	},
+	"states": {
+		"empty": "Nothing here yet.",
+		"error": "The data could not be loaded.",
+		"retry": "Try again"
+	},
+	"milestoneState": {
+		"complete": "Met",
+		"active": "At risk",
+		"pending": "Pending"
 	}
 }

@@ -1,4 +1,4 @@
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, computed, inject, signal } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
 
 export const AVAILABLE_LANGUAGES = ['en', 'es'] as const;
@@ -18,6 +18,9 @@ export class LanguageStore {
 
 	readonly language = this.current.asReadonly();
 	readonly available = AVAILABLE_LANGUAGES;
+
+	/** What Angular's date and number pipes need; Transloco only knows the language. */
+	readonly locale = computed(() => (this.current() === 'es' ? 'es-ES' : 'en-US'));
 
 	constructor() {
 		this.transloco.setActiveLang(this.current());

@@ -73,12 +73,25 @@ export interface CalendarEvent {
 	end: string;
 }
 
+export type ActivityAction = 'created' | 'moved' | 'commented' | 'completed';
+
+export interface ActivityEntry {
+	id: string;
+	personId: string;
+	action: ActivityAction;
+	projectId: string;
+	subject: string;
+	/** ISO date-time. */
+	at: string;
+}
+
 export interface DemoData {
 	people: Person[];
 	projects: Project[];
 	tasks: Task[];
 	milestones: Milestone[];
 	events: CalendarEvent[];
+	activity: ActivityEntry[];
 }
 
 export const TASK_COLUMNS: readonly TaskColumn[] = ['backlog', 'in-progress', 'review', 'done'];

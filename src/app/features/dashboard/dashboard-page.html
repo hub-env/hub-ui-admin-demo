@@ -1,0 +1,111 @@
+<ng-container *transloco="let t">
+	<header class="page-header">
+		<h1>{{ t('nav.dashboard') }}</h1>
+		<p>{{ t('dashboard.subtitle') }}</p>
+	</header>
+
+	@if (view.isLoading()) {
+		<hub-skeleton preset="dashboard-widget" />
+		<hub-skeleton preset="table-row" />
+	} @else if (view.error()) {
+		<div class="state state--error" role="alert">
+			<p>{{ t('states.error') }}</p>
+			<button hubButton color="primary" size="sm" (click)="reload()">{{ t('states.retry') }}</button>
+		</div>
+	} @else if (view.value(); as data) {
+		<section class="stats" [attr.aria-label]="t('dashboard.summary')">
+			<app-stat-card
+				[label]="t('dashboard.onTime')"
+				[value]="data.summary.onTimeRate | percent: '1.0-0'"
+				[note]="t('dashboard.onTimeNote')"
+			>
+				<hub-ring [value]="data.summary.onTimeRate" [thresholds]="{ low: 0.5, high: 0.8 }" size="4rem" />
+			</app-stat-card>
+
+			<app-stat-card
+				[label]="t('dashboard.activeProjects')"
+				[value]="data.summary.activeProjects | number"
+				[note]="t('dashboard.activeProjectsNote')"
+			/>
+
+			<app-stat-card [label]="t('dashboard.overdue')" [value]="data.summary.overdueTasks | number">
+				<hub-badge [color]="data.summary.overdueTasks ? 'danger' : 'success'" variant="soft">
+					{{ data.summary.overdueTasks ? t('dashboard.needsAttention') : t('dashboard.allClear') }}
+				</hub-badge>
+			</app-stat-card>
+
+			<app-stat-card
+				[label]="t('dashboard.weekHours')"
+				[value]="data.summary.weekHours | number"
+				[note]="t('dashboard.weekHoursNote', { capacity: data.summary.weekCapacity, used: capacityUsed() })"
+			>
+				<hub-progress
+					[value]="capacityUsed()"
+					[color]="capacityUsed() >= 100 ? 'warning' : 'primary'"
+					[label]="t('dashboard.capacity')"
+				/>
+			</app-stat-card>
+		</section>
+
+		<div class="panels">
+			<section class="panel">
+				<h2>{{ t('dashboard.milestones') }}</h2>
+				@if (data.milestones.length) {
+					<hub-milestones orientation="vertical">
+						@for (milestone of data.milestones; track milestone.id) {
+							<hub-milestone
+								[state]="milestoneState(milestone.status)"
+								[stateLabel]="t('milestoneState.' + milestoneState(milestone.status))"
+							>
+								<h3 class="panel__item-title">{{ milestone.title }}</h3>
+								<p class="panel__item-note">{{ milestone.date | date: 'mediumDate' : undefined : locale() }}</p>
+							</hub-milestone>
+						}
+					</hub-milestones>
+				} @else {
+					<p class="state">{{ t('states.empty') }}</p>
+				}
+			</section>
+
+			<section class="panel">
+				<h2>{{ t('dashboard.overdueTasks') }}</h2>
+				@if (data.overdue.length) {
+					<ul class="overdue">
+						@for (row of data.overdue; track row.task.id) {
+							<li class="overdue__row">
+								<div class="overdue__main">
+									<span class="overdue__title">{{ row.task.title }}</span>
+									<a class="overdue__project" [routerLink]="['/projects']">{{ row.project.name }}</a>
+								</div>
+								<hub-avatar [name]="row.assignee.name" [size]="28" />
+								<hub-badge color="danger" variant="soft" size="sm">
+									{{ t('dashboard.daysLate', { days: row.daysLate }) }}
+								</hub-badge>
+							</li>
+						}
+					</ul>
+				} @else {
+					<p class="state">{{ t('states.empty') }}</p>
+				}
+			</section>
+
+			<section class="panel">
+				<h2>{{ t('dashboard.activity') }}</h2>
+				<ul class="activity">
+					@for (item of data.activity; track item.entry.id) {
+						<li class="activity__row">
+							<hub-avatar [name]="item.person.name" [size]="32" />
+							<div class="activity__text">
+								<span>{{ t('activity.' + item.entry.action, { name: item.person.name }) }}</span>
+								<span class="activity__subject">{{ item.entry.subject }}</span>
+								<span class="activity__meta">
+									{{ item.project.name }} · {{ item.entry.at | date: 'short' : undefined : locale() }}
+								</span>
+							</div>
+						</li>
+					}
+				</ul>
+			</section>
+		</div>
+	}
+</ng-container>
