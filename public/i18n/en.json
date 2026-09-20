@@ -20,7 +20,8 @@
 		"comingSoon": "This screen lands in a later step of the plan.",
 		"cancel": "Cancel",
 		"back": "Back",
-		"next": "Next"
+		"next": "Next",
+		"close": "Close"
 	},
 	"dashboard": {
 		"subtitle": "How the twelve projects are doing this week.",
@@ -118,5 +119,26 @@
 		"nextYear": "Next year",
 		"today": "Today",
 		"clear": "Clear"
+	},
+	"board": {
+		"subtitle": "Every task on the board. Drag a card, or move it with the keyboard.",
+		"filterByPerson": "Assignee",
+		"everyone": "Everyone",
+		"column": "Column",
+		"priority": "Priority",
+		"estimate": "Estimate",
+		"hours": "{{hours}} h"
+	},
+	"taskColumn": {
+		"backlog": "Backlog",
+		"in-progress": "In progress",
+		"review": "Review",
+		"done": "Done"
+	},
+	"taskPriority": {
+		"low": "Low",
+		"normal": "Normal",
+		"high": "High",
+		"urgent": "Urgent"
 	}
 }

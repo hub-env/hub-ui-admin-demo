@@ -1,0 +1,25 @@
+.detail {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: var(--hub-sys-gap-2) var(--hub-sys-gap-3);
+	margin: 0;
+
+	dt {
+		color: var(--hub-sys-text-secondary);
+	}
+
+	dd {
+		margin: 0;
+	}
+
+	&__person {
+		display: flex;
+		align-items: center;
+		gap: var(--hub-sys-gap-2);
+	}
+}
+
+.hub-modal__footer {
+	display: flex;
+	justify-content: flex-end;
+}

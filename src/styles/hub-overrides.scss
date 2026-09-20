@@ -18,3 +18,14 @@ hub-table {
 	--hub-paginator-select-bg: var(--hub-sys-surface-page);
 	--hub-paginator-link-disabled-bg: var(--hub-sys-surface-page);
 }
+
+/**
+ * An offcanvas modal stops 3.5rem short of the bottom. The drawer's own rule
+ * sets `height: 100%`, but the content keeps the centred dialog's
+ * `max-height: calc(100dvh - var(--hub-modal-dialog-inset))`, and a max-height
+ * beats a height. Zeroing the inset for the drawer is what the mode means:
+ * flush against its edge, top to bottom.
+ */
+.hub-modal--offcanvas .hub-modal__content {
+	--hub-modal-dialog-inset: 0;
+}

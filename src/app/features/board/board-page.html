@@ -1,0 +1,40 @@
+<ng-container *transloco="let t">
+	<header class="page-header">
+		<div>
+			<h1>{{ t('nav.board') }}</h1>
+			<p>{{ t('board.subtitle') }}</p>
+		</div>
+
+		<hub-select
+			class="page-header__filter"
+			[(ngModel)]="assignee"
+			[items]="peopleOptions()"
+			bindLabel="name"
+			bindValue="id"
+			[label]="t('board.filterByPerson')"
+			[placeholder]="t('board.everyone')"
+		/>
+	</header>
+
+	<hub-board
+		[board]="board()"
+		[boardLabel]="t('nav.board')"
+		variant="primary"
+		(onCardClick)="openTask($event)"
+		(onCardMoved)="onCardMoved($event)"
+	>
+		<ng-template cardTpt let-card="item">
+			<div class="card">
+				<p class="card__title">{{ card.title }}</p>
+				<div class="card__meta">
+					<hub-badge [color]="priorityColor(card.data.priority)" variant="soft" size="sm">
+						{{ t('taskPriority.' + card.data.priority) }}
+					</hub-badge>
+					@if (personOf(card.data.assigneeId); as person) {
+						<hub-avatar [name]="person.name" [size]="24" />
+					}
+				</div>
+			</div>
+		</ng-template>
+	</hub-board>
+</ng-container>

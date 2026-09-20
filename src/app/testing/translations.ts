@@ -30,7 +30,18 @@ export const en = {
 		completed: '{{name}} completed'
 	},
 	milestoneState: { complete: 'Met', active: 'At risk', pending: 'Pending' },
-	states: { empty: 'Nothing here yet.', error: 'The data could not be loaded.', retry: 'Try again' }
+	states: { empty: 'Nothing here yet.', error: 'The data could not be loaded.', retry: 'Try again' },
+	board: {
+		subtitle: 'Every task',
+		filterByPerson: 'Assignee',
+		everyone: 'Everyone',
+		column: 'Column',
+		priority: 'Priority',
+		estimate: 'Estimate',
+		hours: '{{hours}} h'
+	},
+	taskColumn: { backlog: 'Backlog', 'in-progress': 'In progress', review: 'Review', done: 'Done' },
+	taskPriority: { low: 'Low', normal: 'Normal', high: 'High', urgent: 'Urgent' }
 };
 
 export const es = {
@@ -64,5 +75,16 @@ export const es = {
 		completed: '{{name}} ha terminado'
 	},
 	milestoneState: { complete: 'Cumplido', active: 'En riesgo', pending: 'Pendiente' },
-	states: { empty: 'Todavía no hay nada.', error: 'No se han podido cargar los datos.', retry: 'Reintentar' }
+	states: { empty: 'Todavía no hay nada.', error: 'No se han podido cargar los datos.', retry: 'Reintentar' },
+	board: {
+		subtitle: 'Todas las tareas',
+		filterByPerson: 'Responsable',
+		everyone: 'Todo el equipo',
+		column: 'Columna',
+		priority: 'Prioridad',
+		estimate: 'Estimación',
+		hours: '{{hours}} h'
+	},
+	taskColumn: { backlog: 'Pendiente', 'in-progress': 'En curso', review: 'Revisión', done: 'Hecho' },
+	taskPriority: { low: 'Baja', normal: 'Normal', high: 'Alta', urgent: 'Urgente' }
 };
