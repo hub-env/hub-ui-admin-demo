@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { TranslocoDirective } from '@jsverse/transloco';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { HUB_MODAL_DATA, HubActiveModal } from 'ng-hub-ui-modal';
 import { HubAvatarComponent } from 'ng-hub-ui-avatar';
 import { HubBadgeComponent } from 'ng-hub-ui-badges';
@@ -11,7 +11,7 @@ import { LanguageStore } from '../../../core/i18n/language-store';
 /** Read-only detail of a card, opened as a drawer from the board. */
 @Component({
 	selector: 'app-task-detail-panel',
-	imports: [DatePipe, TranslocoDirective, HubAvatarComponent, HubBadgeComponent, HubButtonComponent],
+	imports: [DatePipe, TranslocoPipe, HubAvatarComponent, HubBadgeComponent, HubButtonComponent],
 	templateUrl: './task-detail-panel.html',
 	styleUrl: './task-detail-panel.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush
