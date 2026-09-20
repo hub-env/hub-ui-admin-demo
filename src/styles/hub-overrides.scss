@@ -29,3 +29,13 @@ hub-table {
 .hub-modal--offcanvas .hub-modal__content {
 	--hub-modal-dialog-inset: 0;
 }
+
+/**
+ * The calendar's nav, today and view buttons fall back to a reference white
+ * while every other surface in the component reads a system token, so they
+ * come out unreadable on the dark theme. Fixed upstream in
+ * ng-hub-ui-calendar 22.8.2; this goes when that version is installed.
+ */
+hub-calendar {
+	--hub-calendar-btn-bg: var(--hub-sys-surface-page);
+}

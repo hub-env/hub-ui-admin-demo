@@ -19,7 +19,12 @@
 				[value]="data.summary.onTimeRate | percent: '1.0-0'"
 				[note]="t('dashboard.onTimeNote')"
 			>
-				<hub-ring [value]="data.summary.onTimeRate" [thresholds]="{ low: 0.5, high: 0.8 }" size="4rem" />
+				<hub-ring
+					[value]="data.summary.onTimeRate"
+					[thresholds]="{ low: 0.5, high: 0.8 }"
+					size="4rem"
+					[label]="t('dashboard.onTime')"
+				/>
 			</app-stat-card>
 
 			<app-stat-card
