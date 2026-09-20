@@ -8,6 +8,8 @@ It installs the `ng-hub-ui-*` packages from npm, exactly as any consumer would,
 so cloning this repository is also a check that the published packages work
 together.
 
+**Live at [demo.hubui.dev](https://demo.hubui.dev/).**
+
 ![The dashboard](./docs/screenshots/dashboard.png)
 
 ## What it shows
@@ -71,6 +73,13 @@ for both themes.
 
 The initial bundle is 626 kB raw and 140 kB over the wire, of which Angular
 accounts for 368 kB and the navigation for 127 kB.
+
+## Deployment
+
+Easypanel builds the image in this repository on every change to `main` and
+serves it at [demo.hubui.dev](https://demo.hubui.dev/). The `Dockerfile` builds
+the app with node and hands the result to nginx, which falls back to
+`index.html` so a reload on an inner route answers with the app rather than a 404.
 
 ## Part of Hub UI
 
