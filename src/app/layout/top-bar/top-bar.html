@@ -5,38 +5,39 @@
 		<hub-breadcrumb>
 			<ng-template hubBreadcrumbItem let-item let-isLast="isLast">
 				@if (isLast) {
-					<span>{{ label(item.label) }}</span>
+					<span>{{ t(item.label) }}</span>
 				} @else {
-					<a [routerLink]="item.url">{{ label(item.label) }}</a>
+					<a [routerLink]="item.url">{{ t(item.label) }}</a>
 				}
 			</ng-template>
 		</hub-breadcrumb>
 	</div>
 
 	<div class="top-bar__actions">
-		<span class="top-bar__label">{{ t('language.label') }}</span>
-		@for (language of languages.available; track language) {
-			<button
-				hubButton
-				size="sm"
-				color="primary"
-				[variant]="languages.language() === language ? 'solid' : 'ghost'"
-				[attr.aria-pressed]="languages.language() === language"
-				(click)="selectLanguage(language)"
-			>
-				{{ language | uppercase }}
-			</button>
-		}
+		<div class="top-bar__languages" role="group" [attr.aria-label]="t('language.label')">
+			@for (language of languages.available; track language) {
+				<button
+					hubButton
+					size="sm"
+					color="primary"
+					[variant]="languages.language() === language ? 'solid' : 'ghost'"
+					[attr.aria-pressed]="languages.language() === language"
+					(click)="selectLanguage(language)"
+				>
+					{{ language | uppercase }}
+				</button>
+			}
+		</div>
 
 		<button
 			hubButton
 			size="sm"
-			variant="outline"
-			color="neutral"
+			variant="ghost"
+			color="primary"
 			[attr.aria-label]="theme.isDark() ? t('theme.toLight') : t('theme.toDark')"
 			(click)="theme.toggle()"
 		>
-			<hub-icon [name]="theme.isDark() ? 'moon' : 'sun'" />
+			<hub-icon [name]="theme.isDark() ? 'moon' : 'sun'" size="1.15rem" color="var(--hub-sys-text-primary)" />
 		</button>
 	</div>
 </ng-container>

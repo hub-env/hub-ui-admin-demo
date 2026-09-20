@@ -22,5 +22,10 @@
 
 html,
 body {
-	height: 100%;
+	block-size: 100%;
+}
+
+app-root {
+	display: block;
+	block-size: 100%;
 }

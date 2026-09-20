@@ -1,4 +1,27 @@
 :host {
-	display: block;
+	display: flex;
+	block-size: 100%;
 	--hub-nav-panel-width: 15rem;
+}
+
+hub-nav {
+	display: flex;
+	flex: 1;
+	block-size: 100%;
+}
+
+/**
+ * Collapsed, the nav is just its toggle, so it drops its own box and sits
+ * over the top bar instead of carving a strip out of the page.
+ * The breakpoint mirrors hub-nav's own `collapseBreakpoint` (992px).
+ */
+@media (max-width: 991.98px) {
+	hub-nav {
+		block-size: auto;
+		--hub-nav-bg: transparent;
+		--hub-nav-border-width: 0;
+		--hub-nav-box-shadow: none;
+		--hub-nav-padding-x: 0.5rem;
+		--hub-nav-padding-y: 0.5rem;
+	}
 }

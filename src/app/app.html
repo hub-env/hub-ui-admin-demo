@@ -7,6 +7,8 @@
 		@if (navigating()) {
 			<hub-loading mode="overlay" variant="bars" color="primary" />
 		}
-		<router-outlet />
+		<div class="app__page">
+			<router-outlet />
+		</div>
 	</main>
 </div>
