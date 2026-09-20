@@ -1,7 +1,8 @@
 :host {
 	display: grid;
 	grid-template-columns: auto 1fr;
-	min-block-size: 100%;
+	block-size: 100%;
+	background: var(--hub-sys-surface-page);
 }
 
 .app {
@@ -9,11 +10,45 @@
 		display: flex;
 		flex-direction: column;
 		min-inline-size: 0;
+		block-size: 100%;
+		overflow: hidden;
 	}
 
 	&__main {
 		position: relative;
 		flex: 1;
 		padding: var(--hub-sys-gap-4);
+		overflow: auto;
+	}
+
+	&__page {
+		max-inline-size: 90rem;
+		margin-inline: auto;
+	}
+}
+
+/**
+ * Below hub-nav's collapse breakpoint (992px) the menu is an offcanvas panel
+ * and all that is left in place is its toggle. Keeping a grid column for it
+ * would leave a dead strip down the page, so the nav floats over the top bar
+ * and the bar reserves the toggle's width.
+ */
+@media (max-width: 991.98px) {
+	:host {
+		grid-template-columns: 1fr;
+	}
+
+	.app__nav {
+		position: fixed;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		z-index: 30;
+		block-size: auto;
+	}
+
+	// The bar itself takes the toggle's width, so its surface still reaches
+	// the edge of the screen instead of leaving a step of page background.
+	app-top-bar {
+		padding-inline-start: 4.5rem;
 	}
 }
