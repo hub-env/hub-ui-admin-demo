@@ -20,7 +20,8 @@
 		"comingSoon": "Esta pantalla llega en un paso posterior del plan.",
 		"cancel": "Cancelar",
 		"back": "Atrás",
-		"next": "Siguiente"
+		"next": "Siguiente",
+		"close": "Cerrar"
 	},
 	"dashboard": {
 		"subtitle": "Cómo van los doce proyectos esta semana.",
@@ -118,5 +119,26 @@
 		"nextYear": "Año siguiente",
 		"today": "Hoy",
 		"clear": "Limpiar"
+	},
+	"board": {
+		"subtitle": "Todas las tareas del tablero. Arrastra una tarjeta o muévela con el teclado.",
+		"filterByPerson": "Responsable",
+		"everyone": "Todo el equipo",
+		"column": "Columna",
+		"priority": "Prioridad",
+		"estimate": "Estimación",
+		"hours": "{{hours}} h"
+	},
+	"taskColumn": {
+		"backlog": "Pendiente",
+		"in-progress": "En curso",
+		"review": "Revisión",
+		"done": "Hecho"
+	},
+	"taskPriority": {
+		"low": "Baja",
+		"normal": "Normal",
+		"high": "Alta",
+		"urgent": "Urgente"
 	}
 }

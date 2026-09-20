@@ -1,0 +1,42 @@
+<ng-container *transloco="let t">
+	<div class="hub-modal__header">
+		<h2>{{ task.title }}</h2>
+	</div>
+
+	<div class="hub-modal__body">
+		<dl class="detail">
+			<dt>{{ t('projects.name') }}</dt>
+			<dd>{{ project?.name ?? '—' }}</dd>
+
+			<dt>{{ t('board.column') }}</dt>
+			<dd>{{ t('taskColumn.' + task.column) }}</dd>
+
+			<dt>{{ t('projects.owner') }}</dt>
+			<dd class="detail__person">
+				@if (assignee) {
+					<hub-avatar [name]="assignee.name" [size]="24" />
+					<span>{{ assignee.name }}</span>
+				} @else {
+					<span>—</span>
+				}
+			</dd>
+
+			<dt>{{ t('board.priority') }}</dt>
+			<dd>
+				<hub-badge variant="soft" size="sm">{{ t('taskPriority.' + task.priority) }}</hub-badge>
+			</dd>
+
+			<dt>{{ t('projects.dueDate') }}</dt>
+			<dd>{{ task.dueDate | date: 'mediumDate' : undefined : locale() }}</dd>
+
+			<dt>{{ t('board.estimate') }}</dt>
+			<dd>{{ t('board.hours', { hours: task.estimateHours }) }}</dd>
+		</dl>
+	</div>
+
+	<div class="hub-modal__footer">
+		<button hubButton variant="ghost" color="primary" (click)="activeModal.dismiss('close')">
+			{{ t('common.close') }}
+		</button>
+	</div>
+</ng-container>

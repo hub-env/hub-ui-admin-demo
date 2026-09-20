@@ -16,12 +16,24 @@
 
 	&__main {
 		position: relative;
+		display: flex;
+		flex-direction: column;
 		flex: 1;
 		padding: var(--hub-sys-gap-4);
 		overflow: auto;
 	}
 
+	/**
+	 * A flex column rather than a plain block, so a screen that wants the
+	 * height it has — the board, whose columns scroll on their own — can ask
+	 * for it with `flex: 1`. Screens that just grow are unaffected.
+	 */
 	&__page {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		min-block-size: 0;
+		inline-size: 100%;
 		max-inline-size: 90rem;
 		margin-inline: auto;
 	}
