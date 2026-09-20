@@ -21,7 +21,8 @@
 		"cancel": "Cancel",
 		"back": "Back",
 		"next": "Next",
-		"close": "Close"
+		"close": "Close",
+		"save": "Save"
 	},
 	"dashboard": {
 		"subtitle": "How the twelve projects are doing this week.",
@@ -82,7 +83,69 @@
 		"SELECT_ONE": "select one",
 		"TRUE": "yes",
 		"FALSE": "no",
-		"DRAG_SORTABLE_ITEM": "drag to reorder"
+		"DRAG_SORTABLE_ITEM": "drag to reorder",
+		"HUBUI": {
+			"CALENDAR": {
+				"weekdays": [
+					"Sun",
+					"Mon",
+					"Tue",
+					"Wed",
+					"Thu",
+					"Fri",
+					"Sat"
+				],
+				"weekdaysFull": [
+					"Sunday",
+					"Monday",
+					"Tuesday",
+					"Wednesday",
+					"Thursday",
+					"Friday",
+					"Saturday"
+				],
+				"months": [
+					"January",
+					"February",
+					"March",
+					"April",
+					"May",
+					"June",
+					"July",
+					"August",
+					"September",
+					"October",
+					"November",
+					"December"
+				],
+				"monthsShort": [
+					"Jan",
+					"Feb",
+					"Mar",
+					"Apr",
+					"May",
+					"Jun",
+					"Jul",
+					"Aug",
+					"Sep",
+					"Oct",
+					"Nov",
+					"Dec"
+				],
+				"today": "Today",
+				"previous": "Previous",
+				"next": "Next",
+				"month": "Month",
+				"week": "Week",
+				"day": "Day",
+				"year": "Year",
+				"allDay": "All day",
+				"weekAbbr": "Wk",
+				"weekNumberLabel": "Week {count}",
+				"moreEvents": "+{count} more",
+				"eventCount": "{count} events"
+			}
+		}
 	},
 	"projects": {
 		"subtitle": "Everything in the portfolio, paged by the server.",
@@ -140,5 +203,22 @@
 		"normal": "Normal",
 		"high": "High",
 		"urgent": "Urgent"
+	},
+	"calendar": {
+		"subtitle": "Meetings, reviews and releases. Drag an event to move it.",
+		"editTitle": "Edit event",
+		"title": "Title",
+		"kind": "Kind",
+		"start": "Starts",
+		"end": "Ends",
+		"project": "Project",
+		"saved": "{{title}} moved to {{date}}.",
+		"updated": "{{title}} updated."
+	},
+	"eventKind": {
+		"meeting": "Meeting",
+		"delivery": "Delivery",
+		"review": "Review",
+		"holiday": "Holiday"
 	}
 }

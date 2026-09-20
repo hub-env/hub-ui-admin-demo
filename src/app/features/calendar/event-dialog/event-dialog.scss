@@ -1,0 +1,10 @@
+.dialog-form {
+	display: grid;
+	gap: var(--hub-sys-gap-3);
+}
+
+.hub-modal__footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: var(--hub-sys-gap-2);
+}

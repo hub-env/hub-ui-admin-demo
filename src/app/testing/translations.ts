@@ -41,7 +41,19 @@ export const en = {
 		hours: '{{hours}} h'
 	},
 	taskColumn: { backlog: 'Backlog', 'in-progress': 'In progress', review: 'Review', done: 'Done' },
-	taskPriority: { low: 'Low', normal: 'Normal', high: 'High', urgent: 'Urgent' }
+	taskPriority: { low: 'Low', normal: 'Normal', high: 'High', urgent: 'Urgent' },
+	calendar: {
+		subtitle: 'Events',
+		editTitle: 'Edit event',
+		title: 'Title',
+		kind: 'Kind',
+		start: 'Starts',
+		end: 'Ends',
+		project: 'Project',
+		saved: '{{title}} moved',
+		updated: '{{title}} updated'
+	},
+	eventKind: { meeting: 'Meeting', delivery: 'Delivery', review: 'Review', holiday: 'Holiday' }
 };
 
 export const es = {
@@ -86,5 +98,17 @@ export const es = {
 		hours: '{{hours}} h'
 	},
 	taskColumn: { backlog: 'Pendiente', 'in-progress': 'En curso', review: 'Revisión', done: 'Hecho' },
-	taskPriority: { low: 'Baja', normal: 'Normal', high: 'Alta', urgent: 'Urgente' }
+	taskPriority: { low: 'Baja', normal: 'Normal', high: 'Alta', urgent: 'Urgente' },
+	calendar: {
+		subtitle: 'Eventos',
+		editTitle: 'Editar evento',
+		title: 'Título',
+		kind: 'Tipo',
+		start: 'Empieza',
+		end: 'Termina',
+		project: 'Proyecto',
+		saved: '{{title}} movido',
+		updated: '{{title}} actualizado'
+	},
+	eventKind: { meeting: 'Reunión', delivery: 'Entrega', review: 'Revisión', holiday: 'Festivo' }
 };
