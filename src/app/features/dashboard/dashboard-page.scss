@@ -131,3 +131,14 @@
 		}
 	}
 }
+
+/**
+ * hub-progress paints its label with `--hub-sys-text-muted` and offers no
+ * token of its own; that grey measures 4.44:1 on the card surface, just
+ * under the 4.5:1 a label needs. The rule lives here, where the element is
+ * written: projected content carries this component's encapsulation
+ * attribute, not the card's.
+ */
+hub-progress {
+	--hub-sys-text-muted: var(--hub-sys-text-secondary);
+}

@@ -28,7 +28,9 @@
 
 	&__note {
 		margin: 0;
-		color: var(--hub-sys-text-tertiary);
+		// Not `text-tertiary`: at 50% over this surface it measures 3.07:1,
+		// under the 4.5:1 a label needs.
+		color: var(--hub-sys-text-secondary);
 		font-size: var(--hub-ref-font-size-sm);
 	}
 }

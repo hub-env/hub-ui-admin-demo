@@ -24,6 +24,17 @@
 		white-space: nowrap;
 	}
 
+	/**
+	 * The unselected language reads as body text, not as an accent. A ghost
+	 * button paints its label with the accent's emphasis colour, which on the
+	 * dark theme measured 2.4:1 against this bar — under the 4.5:1 a label
+	 * needs. The selected one keeps the solid accent, so the pair still reads
+	 * as one chosen and one not.
+	 */
+	&__languages button[aria-pressed='false'] {
+		--hub-btn-accent-emphasis: var(--hub-sys-text-primary);
+	}
+
 	&__actions,
 	&__languages {
 		display: flex;
