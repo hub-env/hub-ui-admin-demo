@@ -1,0 +1,34 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	gap: var(--hub-sys-gap-1);
+	padding: var(--hub-sys-gap-3);
+	border: 1px solid var(--hub-sys-border-color-default);
+	border-radius: var(--hub-sys-radius-lg);
+	background: var(--hub-sys-surface-elevated);
+}
+
+.stat-card {
+	&__label {
+		margin: 0;
+		color: var(--hub-sys-text-secondary);
+		font-size: var(--hub-ref-font-size-sm);
+	}
+
+	&__value {
+		margin: 0;
+		font-size: 2rem;
+		font-weight: var(--hub-ref-font-weight-semibold);
+		line-height: 1.1;
+	}
+
+	&__indicator:empty {
+		display: none;
+	}
+
+	&__note {
+		margin: 0;
+		color: var(--hub-sys-text-tertiary);
+		font-size: var(--hub-ref-font-size-sm);
+	}
+}

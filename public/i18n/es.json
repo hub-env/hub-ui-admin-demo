@@ -18,5 +18,39 @@
 	},
 	"common": {
 		"comingSoon": "Esta pantalla llega en un paso posterior del plan."
+	},
+	"dashboard": {
+		"subtitle": "Cómo van los doce proyectos esta semana.",
+		"summary": "Resumen",
+		"onTime": "Entregado a tiempo",
+		"onTimeNote": "Hitos cumplidos de los ya vencidos",
+		"activeProjects": "Proyectos activos",
+		"activeProjectsNote": "De los doce de la cartera",
+		"overdue": "Tareas atrasadas",
+		"needsAttention": "Requiere atención",
+		"allClear": "Al día",
+		"weekHours": "Horas en marcha",
+		"weekHoursNote": "De las {{capacity}} horas del equipo esta semana: {{used}}% comprometido",
+		"milestones": "Próximos hitos",
+		"overdueTasks": "Van con retraso",
+		"activity": "Actividad reciente",
+		"daysLate": "{{days}} d de retraso",
+		"capacity": "Capacidad"
+	},
+	"activity": {
+		"created": "{{name}} ha creado",
+		"moved": "{{name}} ha movido",
+		"commented": "{{name}} ha comentado",
+		"completed": "{{name}} ha terminado"
+	},
+	"states": {
+		"empty": "Todavía no hay nada.",
+		"error": "No se han podido cargar los datos.",
+		"retry": "Reintentar"
+	},
+	"milestoneState": {
+		"complete": "Cumplido",
+		"active": "En riesgo",
+		"pending": "Pendiente"
 	}
 }
