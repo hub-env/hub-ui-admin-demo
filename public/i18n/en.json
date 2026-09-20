@@ -1,0 +1,13 @@
+{
+	"app": {
+		"name": "Hub PM",
+		"tagline": "A project management app built only with Hub UI packages"
+	},
+	"theme": {
+		"toLight": "Switch to light theme",
+		"toDark": "Switch to dark theme"
+	},
+	"language": {
+		"label": "Language"
+	}
+}

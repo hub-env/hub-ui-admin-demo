@@ -1,0 +1,13 @@
+{
+	"app": {
+		"name": "Hub PM",
+		"tagline": "Una aplicación de gestión de proyectos hecha solo con paquetes de Hub UI"
+	},
+	"theme": {
+		"toLight": "Cambiar al tema claro",
+		"toDark": "Cambiar al tema oscuro"
+	},
+	"language": {
+		"label": "Idioma"
+	}
+}

@@ -1,0 +1,60 @@
+{
+  "name": "hub-ui-admin-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "packageManager": "npm@11.19.1",
+  "dependencies": {
+    "@angular/common": "^22.1.0",
+    "@angular/compiler": "^22.1.0",
+    "@angular/core": "^22.1.0",
+    "@angular/forms": "^22.1.0",
+    "@angular/platform-browser": "^22.1.0",
+    "@angular/router": "^22.1.0",
+    "@jsverse/transloco": "^8.4.0",
+    "ng-hub-ui-avatar": "^22.12.1",
+    "ng-hub-ui-badges": "^22.7.2",
+    "ng-hub-ui-board": "^22.6.1",
+    "ng-hub-ui-breadcrumbs": "^22.7.2",
+    "ng-hub-ui-buttons": "^22.12.1",
+    "ng-hub-ui-calendar": "^22.8.1",
+    "ng-hub-ui-ds": "^22.11.4",
+    "ng-hub-ui-forms": "^22.35.1",
+    "ng-hub-ui-icons": "^22.3.2",
+    "ng-hub-ui-loading": "^22.2.1",
+    "ng-hub-ui-metrics": "^22.4.1",
+    "ng-hub-ui-milestones": "^22.5.1",
+    "ng-hub-ui-modal": "^22.12.1",
+    "ng-hub-ui-nav": "^22.14.2",
+    "ng-hub-ui-paginable": "^22.22.1",
+    "ng-hub-ui-panels": "^22.12.1",
+    "ng-hub-ui-skeleton": "^22.3.2",
+    "ng-hub-ui-stepper": "^22.10.1",
+    "ng-hub-ui-toast": "^22.11.1",
+    "ng-hub-ui-utils": "^22.15.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^22.1.8",
+    "@angular/cli": "^22.1.8",
+    "@angular/compiler-cli": "^22.1.0",
+    "jsdom": "^28.0.0",
+    "prettier": "^3.8.1",
+    "typescript": "~6.0.2",
+    "vitest": "^4.0.8"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "lmdb@3.5.6": true,
+    "msgpackr-extract@3.0.4": true,
+    "@parcel/watcher@2.6.0": true,
+    "fsevents@2.3.3": true
+  }
+}

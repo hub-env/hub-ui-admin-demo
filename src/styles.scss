@@ -1,0 +1,24 @@
+/**
+ * Global sheet. It holds only what cannot live in a component: the brand
+ * accent that re-tints the ng-hub-ui tokens, and the page frame.
+ * Everything a single screen needs belongs to that screen's stylesheet.
+ *
+ * Fonts, colours and the page background come from ng-hub-ui-ds through its
+ * reset, loaded before this file in angular.json.
+ */
+
+:root {
+	--hub-sys-color-primary: #7c3aed;
+}
+
+// Dark only needs a lighter violet to keep its contrast on dark surfaces.
+// Every other token comes from ng-hub-ui-ds untouched, which is the point:
+// one variable re-themes the whole family.
+:root[data-theme='dark'] {
+	--hub-sys-color-primary: #a78bfa;
+}
+
+html,
+body {
+	height: 100%;
+}
