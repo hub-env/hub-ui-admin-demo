@@ -1,0 +1,86 @@
+name: Deploy the demo
+
+on:
+    push:
+        branches:
+            - main
+    # Manual trigger, so the credentials can be verified end to end without
+    # pushing to main.
+    workflow_dispatch:
+
+# Two overlapping mirrors race on the same remote tree, and an interrupted one
+# leaves a half-updated site. Queue the newer run instead of cancelling it.
+concurrency:
+    group: deploy-demo
+    cancel-in-progress: false
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v7
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v7
+              with:
+                  node-version: '22'
+                  cache: 'npm'
+
+            # npm 10 cannot resolve this project's peer graph (it fails with
+            # "Cannot read properties of null (reading 'edgesOut')"), which is
+            # why package.json pins npm 11.
+            - name: Use npm 11
+              run: npm install -g npm@11
+
+            - name: Install dependencies
+              run: npm ci
+
+            # The deploy is gated on green tests and a clean build: a demo that
+            # is the shop window must never be published broken.
+            - name: Test
+              run: npx ng test --watch=false
+
+            - name: Build
+              run: npx ng build
+
+            - name: Deploy over rsync
+              env:
+                  SSH_HOST: ${{ secrets.SSH_HOST }}
+                  SSH_USER: ${{ secrets.SSH_USERNAME }}
+                  SSH_PASS: ${{ secrets.SSH_PASSWORD }}
+                  SSH_PORT: ${{ secrets.SSH_PORT || 22 }}
+                  REMOTE_PATH: ${{ secrets.DEPLOY_REMOTE_PATH }}
+              run: |
+                  sudo apt-get update -qq && sudo apt-get install -y -qq rsync sshpass
+
+                  SRC=./dist/hub-ui-admin-demo/browser/
+
+                  # The trailing slash is part of the command: with it the
+                  # contents travel, without it a `browser/` folder is created
+                  # inside the remote path and the site serves nothing.
+                  #
+                  # No --delete: anything placed on the server by hand survives.
+                  # Retried, because the refusals seen on this family of hosts
+                  # are transient, and --partial resumes instead of restarting.
+                  for attempt in 1 2 3; do
+                    if sshpass -p "$SSH_PASS" rsync -rlptz --partial --exclude '.git*' \
+                         -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=no -o ServerAliveInterval=15" \
+                         "$SRC" "$SSH_USER@$SSH_HOST:$REMOTE_PATH"; then
+                      echo "Deployed (attempt $attempt)."
+                      exit 0
+                    fi
+                    echo "::warning::rsync attempt $attempt failed"
+                    [ "$attempt" -lt 3 ] && sleep 10
+                  done
+
+                  echo "::error::rsync failed three times"
+                  exit 1
+
+            - name: Check the published site
+              if: ${{ success() }}
+              run: |
+                  code=$(curl -s -o /dev/null -w '%{http_code}' -L https://demo.hubui.dev/ || true)
+                  echo "demo.hubui.dev answered $code"
+                  [ "$code" = "200" ] || echo "::warning::the site did not answer 200"
