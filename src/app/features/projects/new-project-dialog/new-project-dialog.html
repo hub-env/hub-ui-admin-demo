@@ -1,69 +1,74 @@
-<ng-container *transloco="let t">
-	<div class="hub-modal__header">
-		<h2>{{ t('projects.newTitle') }}</h2>
-	</div>
+<!--
+	No `*transloco` wrapper here, and none around any of the three slots: the
+	modal looks for `.hub-modal__header` / `.hub-modal__footer` among the
+	projected nodes, and a structural directive puts them inside an embedded
+	view where that search does not reach — header and footer come out empty
+	and everything lands in the body. The pipe translates without wrapping.
+-->
+<div class="hub-modal__header">
+	<h2>{{ 'projects.newTitle' | transloco }}</h2>
+</div>
 
-	<div class="hub-modal__body">
-		<hub-stepper
-			[backLabel]="t('common.back')"
-			[continueLabel]="t('common.next')"
-			[submitLabel]="t('projects.create')"
-			(completed)="submit()"
-		>
-			<hub-step [title]="t('projects.stepDetails')">
-				<form [formGroup]="details" class="dialog-form">
-					<hub-input formControlName="name" [label]="t('projects.name')" [required]="true" />
-					<hub-input formControlName="client" [label]="t('projects.client')" [required]="true" />
-					<hub-select
-						formControlName="status"
-						[label]="t('projects.status')"
-						[items]="statusOptions()"
-						bindLabel="label"
-						bindValue="value"
-					/>
-				</form>
-			</hub-step>
+<div class="hub-modal__body">
+	<hub-stepper
+		[backLabel]="'common.back' | transloco"
+		[continueLabel]="'common.next' | transloco"
+		[submitLabel]="'projects.create' | transloco"
+		(completed)="submit()"
+	>
+		<hub-step [title]="'projects.stepDetails' | transloco">
+			<form [formGroup]="details" class="dialog-form">
+				<hub-input formControlName="name" [label]="'projects.name' | transloco" [required]="true" />
+				<hub-input formControlName="client" [label]="'projects.client' | transloco" [required]="true" />
+				<hub-select
+					formControlName="status"
+					[label]="'projects.status' | transloco"
+					[items]="statusOptions()"
+					bindLabel="label"
+					bindValue="value"
+				/>
+			</form>
+		</hub-step>
 
-			<hub-step [title]="t('projects.stepTeam')" [disabled]="!detailsValid()">
-				<form [formGroup]="team" class="dialog-form">
-					<hub-select
-						formControlName="ownerId"
-						[label]="t('projects.owner')"
-						[items]="peopleResource.value() ?? []"
-						bindLabel="name"
-						bindValue="id"
-						[required]="true"
-					/>
-					<hub-input formControlName="budget" type="number" [label]="t('projects.budget')" [required]="true" />
-				</form>
-			</hub-step>
+		<hub-step [title]="'projects.stepTeam' | transloco" [disabled]="!detailsValid()">
+			<form [formGroup]="team" class="dialog-form">
+				<hub-select
+					formControlName="ownerId"
+					[label]="'projects.owner' | transloco"
+					[items]="peopleResource.value() ?? []"
+					bindLabel="name"
+					bindValue="id"
+					[required]="true"
+				/>
+				<hub-input formControlName="budget" type="number" [label]="'projects.budget' | transloco" [required]="true" />
+			</form>
+		</hub-step>
 
-			<hub-step [title]="t('projects.stepDates')" [disabled]="!teamValid()">
-				<form [formGroup]="dates" class="dialog-form">
-					<hub-datepicker
-						formControlName="startDate"
-						[label]="t('projects.startDate')"
-						[required]="true"
-						[locale]="locale()"
-						[firstDayOfWeek]="1"
-						[labels]="datepickerLabels()"
-					/>
-					<hub-datepicker
-						formControlName="dueDate"
-						[label]="t('projects.dueDate')"
-						[required]="true"
-						[locale]="locale()"
-						[firstDayOfWeek]="1"
-						[labels]="datepickerLabels()"
-					/>
-				</form>
-			</hub-step>
-		</hub-stepper>
-	</div>
+		<hub-step [title]="'projects.stepDates' | transloco" [disabled]="!teamValid()">
+			<form [formGroup]="dates" class="dialog-form">
+				<hub-datepicker
+					formControlName="startDate"
+					[label]="'projects.startDate' | transloco"
+					[required]="true"
+					[locale]="locale()"
+					[firstDayOfWeek]="1"
+					[labels]="datepickerLabels()"
+				/>
+				<hub-datepicker
+					formControlName="dueDate"
+					[label]="'projects.dueDate' | transloco"
+					[required]="true"
+					[locale]="locale()"
+					[firstDayOfWeek]="1"
+					[labels]="datepickerLabels()"
+				/>
+			</form>
+		</hub-step>
+	</hub-stepper>
+</div>
 
-	<div class="hub-modal__footer">
-		<button hubButton variant="ghost" color="primary" (click)="activeModal.dismiss('cancel')">
-			{{ t('common.cancel') }}
-		</button>
-	</div>
-</ng-container>
+<div class="hub-modal__footer">
+	<button hubButton variant="ghost" color="primary" (click)="activeModal.dismiss('cancel')">
+		{{ 'common.cancel' | transloco }}
+	</button>
+</div>

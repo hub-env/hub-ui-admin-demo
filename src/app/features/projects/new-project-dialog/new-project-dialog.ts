@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, resource, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { HubActiveModal } from 'ng-hub-ui-modal';
 import { HubButtonComponent } from 'ng-hub-ui-buttons';
 import { HubDatepickerComponent, HubInputComponent, HubSelectComponent } from 'ng-hub-ui-forms';
@@ -20,7 +20,7 @@ import { ProjectsService } from '../../../core/data/projects.service';
 	selector: 'app-new-project-dialog',
 	imports: [
 		ReactiveFormsModule,
-		TranslocoDirective,
+		TranslocoPipe,
 		HubButtonComponent,
 		HubInputComponent,
 		HubSelectComponent,
