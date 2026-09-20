@@ -18,3 +18,23 @@ if (typeof window !== 'undefined' && typeof window.matchMedia !== 'function') {
 			dispatchEvent: () => false
 		}) as MediaQueryList;
 }
+
+/**
+ * jsdom ships no IntersectionObserver, which ng-hub-ui-milestones uses for its
+ * reveal animation. A stub that never fires keeps the components renderable.
+ */
+if (typeof window !== 'undefined' && typeof window.IntersectionObserver !== 'function') {
+	class NoopIntersectionObserver {
+		readonly root = null;
+		readonly rootMargin = '';
+		readonly scrollMargin = '';
+		readonly thresholds: ReadonlyArray<number> = [];
+		observe(): void {}
+		unobserve(): void {}
+		disconnect(): void {}
+		takeRecords(): [] {
+			return [];
+		}
+	}
+	window.IntersectionObserver = NoopIntersectionObserver as unknown as typeof IntersectionObserver;
+}

@@ -1,0 +1,50 @@
+<ng-container *transloco="let t">
+	<header class="page-header">
+		<div>
+			<h1>{{ t('nav.projects') }}</h1>
+			<p>{{ t('projects.subtitle') }}</p>
+		</div>
+
+		<button hubButton color="primary" (click)="openNewProject()">
+			<hub-icon name="plus" size="1rem" />
+			{{ t('projects.new') }}
+		</button>
+	</header>
+
+	<hub-ui-table
+		[headers]="headers()"
+		[data]="projectsResource.value()?.data ?? []"
+		[totalItems]="projectsResource.value()?.totalItems ?? 0"
+		[loading]="projectsResource.isLoading()"
+		[error]="!!projectsResource.error()"
+		[page]="page()"
+		[perPage]="perPage()"
+		[ordination]="ordination()"
+		[searchable]="true"
+		[selectable]="true"
+		[multiple]="true"
+		[batchActions]="batchActions()"
+		[(ngModel)]="selection"
+		(pageChange)="onPage($event)"
+		(perPageChange)="onPerPage($event)"
+		(ordinationChange)="onOrdination($event)"
+		(searchTermChange)="onSearch($event)"
+		(filtersChange)="onFilters($event)"
+	>
+		<ng-template cellTpt header="status" let-item="item">
+			<hub-badge [color]="statusColor(item.status)" variant="soft" size="sm">
+				{{ t('projectStatus.' + item.status) }}
+			</hub-badge>
+		</ng-template>
+
+		<ng-template cellTpt header="ownerId" let-item="item">{{ personName(item.ownerId) }}</ng-template>
+
+		<ng-template cellTpt header="dueDate" let-item="item">
+			{{ item.dueDate | date: 'mediumDate' : undefined : locale() }}
+		</ng-template>
+
+		<ng-template cellTpt header="progress" let-item="item">
+			{{ item.progress / 100 | percent: '1.0-0' : locale() }}
+		</ng-template>
+	</hub-ui-table>
+</ng-container>
