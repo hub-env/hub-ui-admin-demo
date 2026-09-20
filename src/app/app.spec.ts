@@ -1,20 +1,13 @@
 import { TestBed } from '@angular/core/testing';
+import { Router, provideRouter } from '@angular/router';
+import { RouterTestingHarness } from '@angular/router/testing';
 import { TranslocoTestingModule } from '@jsverse/transloco';
 import { App } from './app';
+import { routes } from './app.routes';
 import { LanguageStore } from './core/i18n/language-store';
+import { en, es } from './testing/translations';
 
-const en = {
-	app: { name: 'Hub PM', tagline: 'Built with Hub UI' },
-	theme: { toLight: 'Light', toDark: 'Dark' },
-	language: { label: 'Language' }
-};
-const es = {
-	app: { name: 'Hub PM', tagline: 'Hecha con Hub UI' },
-	theme: { toLight: 'Claro', toDark: 'Oscuro' },
-	language: { label: 'Idioma' }
-};
-
-describe('App', () => {
+describe('App shell', () => {
 	beforeEach(async () => {
 		localStorage.clear();
 		await TestBed.configureTestingModule({
@@ -25,24 +18,41 @@ describe('App', () => {
 					translocoConfig: { availableLangs: ['en', 'es'], defaultLang: 'en', reRenderOnLangChange: true },
 					preloadLangs: true
 				})
-			]
+			],
+			providers: [provideRouter(routes)]
 		}).compileComponents();
 	});
 
-	it('renders the app name', async () => {
+	it('renders the brand and the four sections', async () => {
 		const fixture = TestBed.createComponent(App);
 		await fixture.whenStable();
 
-		expect((fixture.nativeElement as HTMLElement).textContent).toContain('Hub PM');
+		const text = (fixture.nativeElement as HTMLElement).textContent ?? '';
+		expect(text).toContain('Hub PM');
+		for (const section of ['Dashboard', 'Projects', 'Board', 'Calendar']) {
+			expect(text).toContain(section);
+		}
 	});
 
-	it('follows the active language', async () => {
+	it('relabels the navigation when the language changes', async () => {
 		const fixture = TestBed.createComponent(App);
 		await fixture.whenStable();
 
 		TestBed.inject(LanguageStore).set('es');
 		await fixture.whenStable();
 
-		expect((fixture.nativeElement as HTMLElement).textContent).toContain('Idioma');
+		expect((fixture.nativeElement as HTMLElement).textContent).toContain('Tablero');
+	});
+
+	it('lands on the dashboard and reaches the other screens', async () => {
+		const harness = await RouterTestingHarness.create('/');
+		await harness.fixture.whenStable();
+
+		expect(TestBed.inject(Router).url).toBe('/dashboard');
+
+		await harness.navigateByUrl('/projects');
+		await harness.fixture.whenStable();
+
+		expect(TestBed.inject(Router).url).toBe('/projects');
 	});
 });

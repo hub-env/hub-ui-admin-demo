@@ -1,39 +1,12 @@
-<ng-container *transloco="let t">
-	<header class="app-bar">
-		<div class="app-bar__brand">
-			<strong>{{ t('app.name') }}</strong>
-			<span class="app-bar__tagline">{{ t('app.tagline') }}</span>
-		</div>
+<app-side-nav class="app__nav" />
 
-		<div class="app-bar__actions">
-			<span class="app-bar__label">{{ t('language.label') }}</span>
-			@for (language of languages.available; track language) {
-				<button
-					hubButton
-					size="sm"
-					color="primary"
-					[variant]="languages.language() === language ? 'solid' : 'ghost'"
-					[attr.aria-pressed]="languages.language() === language"
-					(click)="selectLanguage(language)"
-				>
-					{{ language | uppercase }}
-				</button>
-			}
+<div class="app__column">
+	<app-top-bar />
 
-			<button
-				hubButton
-				size="sm"
-				variant="outline"
-				color="neutral"
-				[attr.aria-label]="theme.isDark() ? t('theme.toLight') : t('theme.toDark')"
-				(click)="theme.toggle()"
-			>
-				{{ theme.isDark() ? '☾' : '☀' }}
-			</button>
-		</div>
-	</header>
-
-	<main class="app-main">
+	<main class="app__main">
+		@if (navigating()) {
+			<hub-loading mode="overlay" variant="bars" color="primary" />
+		}
 		<router-outlet />
 	</main>
-</ng-container>
+</div>

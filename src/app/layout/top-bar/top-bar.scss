@@ -1,0 +1,35 @@
+:host {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--hub-sys-gap-3);
+	padding: var(--hub-sys-gap-3) var(--hub-sys-gap-4);
+	border-bottom: 1px solid var(--hub-sys-border-color-default);
+	background: var(--hub-sys-surface-elevated);
+}
+
+.top-bar {
+	&__trail {
+		display: flex;
+		align-items: center;
+		gap: var(--hub-sys-gap-3);
+		min-inline-size: 0;
+	}
+
+	&__brand {
+		font-weight: 600;
+		color: inherit;
+		text-decoration: none;
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: var(--hub-sys-gap-2);
+	}
+
+	&__label {
+		color: var(--hub-sys-text-secondary);
+	}
+}

@@ -2,6 +2,8 @@ import { ApplicationConfig, isDevMode, provideBrowserGlobalErrorListeners } from
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { provideTransloco } from '@jsverse/transloco';
+import { provideHubIcons } from 'ng-hub-ui-icons';
+import { appIconPack } from './core/icons/app-icon-pack';
 import { AVAILABLE_LANGUAGES } from './core/i18n/language-store';
 import { TranslationLoader } from './core/i18n/translation-loader';
 import { routes } from './app.routes';
@@ -20,6 +22,7 @@ export const appConfig: ApplicationConfig = {
 				prodMode: !isDevMode()
 			},
 			loader: TranslationLoader
-		})
+		}),
+		provideHubIcons({ defaultPack: 'app', packs: { app: appIconPack } })
 	]
 };

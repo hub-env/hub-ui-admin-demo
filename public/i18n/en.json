@@ -9,5 +9,14 @@
 	},
 	"language": {
 		"label": "Language"
+	},
+	"nav": {
+		"dashboard": "Dashboard",
+		"projects": "Projects",
+		"board": "Board",
+		"calendar": "Calendar"
+	},
+	"common": {
+		"comingSoon": "This screen lands in a later step of the plan."
 	}
 }
