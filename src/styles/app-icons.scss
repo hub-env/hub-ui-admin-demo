@@ -1,0 +1,58 @@
+/**
+ * The app's icon set: a handful of outline glyphs drawn as CSS masks, so they
+ * take `currentColor` and need no font, no sprite and no third-party set.
+ *
+ * It lives in the global sheet on purpose. hub-nav paints an item's icon as
+ * `<i [class]="item.icon">` inside its own template, where a component's
+ * encapsulated styles cannot reach, and these classes are a house pattern
+ * rather than one screen's decoration.
+ *
+ * ng-hub-ui-icons maps `<hub-icon name="…">` onto the same classes, so there is
+ * one icon vocabulary in the app, not two.
+ *
+ * The SVG in each mask is percent-encoded: `<` and `>` are not valid raw in a
+ * `url()` and some parsers reject the declaration outright.
+ */
+
+.app-icon {
+	display: inline-block;
+	inline-size: 1.25em;
+	block-size: 1.25em;
+	vertical-align: -0.2em;
+	background-color: currentColor;
+	mask-repeat: no-repeat;
+	mask-position: center;
+	mask-size: contain;
+}
+
+.app-icon--dashboard {
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='7' height='9' rx='1.5'/%3E%3Crect x='14' y='3' width='7' height='5' rx='1.5'/%3E%3Crect x='14' y='12' width='7' height='9' rx='1.5'/%3E%3Crect x='3' y='16' width='7' height='5' rx='1.5'/%3E%3C/svg%3E");
+}
+
+.app-icon--projects {
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 7.5h18M3 12h18M3 16.5h18'/%3E%3C/svg%3E");
+}
+
+.app-icon--board {
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='5' height='16' rx='1.5'/%3E%3Crect x='9.5' y='4' width='5' height='11' rx='1.5'/%3E%3Crect x='16' y='4' width='5' height='14' rx='1.5'/%3E%3C/svg%3E");
+}
+
+.app-icon--calendar {
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='2'/%3E%3Cpath d='M3 10h18M8 3v4M16 3v4'/%3E%3C/svg%3E");
+}
+
+.app-icon--sun {
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4'/%3E%3C/svg%3E");
+}
+
+.app-icon--moon {
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z'/%3E%3C/svg%3E");
+}
+
+.app-icon--menu {
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7h16M4 12h16M4 17h16'/%3E%3C/svg%3E");
+}
+
+.app-icon--plus {
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E");
+}

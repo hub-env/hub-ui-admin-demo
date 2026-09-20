@@ -9,5 +9,14 @@
 	},
 	"language": {
 		"label": "Idioma"
+	},
+	"nav": {
+		"dashboard": "Panel",
+		"projects": "Proyectos",
+		"board": "Tablero",
+		"calendar": "Calendario"
+	},
+	"common": {
+		"comingSoon": "Esta pantalla llega en un paso posterior del plan."
 	}
 }

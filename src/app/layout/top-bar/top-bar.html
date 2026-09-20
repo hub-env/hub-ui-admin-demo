@@ -1,0 +1,42 @@
+<ng-container *transloco="let t">
+	<div class="top-bar__trail">
+		<a class="top-bar__brand" routerLink="/dashboard">{{ t('app.name') }}</a>
+
+		<hub-breadcrumb>
+			<ng-template hubBreadcrumbItem let-item let-isLast="isLast">
+				@if (isLast) {
+					<span>{{ label(item.label) }}</span>
+				} @else {
+					<a [routerLink]="item.url">{{ label(item.label) }}</a>
+				}
+			</ng-template>
+		</hub-breadcrumb>
+	</div>
+
+	<div class="top-bar__actions">
+		<span class="top-bar__label">{{ t('language.label') }}</span>
+		@for (language of languages.available; track language) {
+			<button
+				hubButton
+				size="sm"
+				color="primary"
+				[variant]="languages.language() === language ? 'solid' : 'ghost'"
+				[attr.aria-pressed]="languages.language() === language"
+				(click)="selectLanguage(language)"
+			>
+				{{ language | uppercase }}
+			</button>
+		}
+
+		<button
+			hubButton
+			size="sm"
+			variant="outline"
+			color="neutral"
+			[attr.aria-label]="theme.isDark() ? t('theme.toLight') : t('theme.toDark')"
+			(click)="theme.toggle()"
+		>
+			<hub-icon [name]="theme.isDark() ? 'moon' : 'sun'" />
+		</button>
+	</div>
+</ng-container>
