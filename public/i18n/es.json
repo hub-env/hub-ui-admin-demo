@@ -21,7 +21,8 @@
 		"cancel": "Cancelar",
 		"back": "Atrás",
 		"next": "Siguiente",
-		"close": "Cerrar"
+		"close": "Cerrar",
+		"save": "Guardar"
 	},
 	"dashboard": {
 		"subtitle": "Cómo van los doce proyectos esta semana.",
@@ -82,7 +83,69 @@
 		"SELECT_ONE": "elige una",
 		"TRUE": "sí",
 		"FALSE": "no",
-		"DRAG_SORTABLE_ITEM": "arrastra para reordenar"
+		"DRAG_SORTABLE_ITEM": "arrastra para reordenar",
+		"HUBUI": {
+			"CALENDAR": {
+				"weekdays": [
+					"Dom",
+					"Lun",
+					"Mar",
+					"Mié",
+					"Jue",
+					"Vie",
+					"Sáb"
+				],
+				"weekdaysFull": [
+					"domingo",
+					"lunes",
+					"martes",
+					"miércoles",
+					"jueves",
+					"viernes",
+					"sábado"
+				],
+				"months": [
+					"enero",
+					"febrero",
+					"marzo",
+					"abril",
+					"mayo",
+					"junio",
+					"julio",
+					"agosto",
+					"septiembre",
+					"octubre",
+					"noviembre",
+					"diciembre"
+				],
+				"monthsShort": [
+					"ene",
+					"feb",
+					"mar",
+					"abr",
+					"may",
+					"jun",
+					"jul",
+					"ago",
+					"sept",
+					"oct",
+					"nov",
+					"dic"
+				],
+				"today": "Hoy",
+				"previous": "Anterior",
+				"next": "Siguiente",
+				"month": "Mes",
+				"week": "Semana",
+				"day": "Día",
+				"year": "Año",
+				"allDay": "Todo el día",
+				"weekAbbr": "Sem",
+				"weekNumberLabel": "Semana {count}",
+				"moreEvents": "+{count} más",
+				"eventCount": "{count} eventos"
+			}
+		}
 	},
 	"projects": {
 		"subtitle": "Toda la cartera, paginada desde el servidor.",
@@ -140,5 +203,22 @@
 		"normal": "Normal",
 		"high": "Alta",
 		"urgent": "Urgente"
+	},
+	"calendar": {
+		"subtitle": "Reuniones, revisiones y entregas. Arrastra un evento para cambiarlo de día.",
+		"editTitle": "Editar evento",
+		"title": "Título",
+		"kind": "Tipo",
+		"start": "Empieza",
+		"end": "Termina",
+		"project": "Proyecto",
+		"saved": "{{title}} se ha movido al {{date}}.",
+		"updated": "{{title}} actualizado."
+	},
+	"eventKind": {
+		"meeting": "Reunión",
+		"delivery": "Entrega",
+		"review": "Revisión",
+		"holiday": "Festivo"
 	}
 }

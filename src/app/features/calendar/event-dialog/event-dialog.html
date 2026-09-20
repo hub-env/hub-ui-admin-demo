@@ -1,0 +1,56 @@
+<!-- Slots at the top level, unwrapped: a structural directive would hide them from the modal. -->
+<div class="hub-modal__header">
+	<h2>{{ 'calendar.editTitle' | transloco }}</h2>
+</div>
+
+<div class="hub-modal__body">
+	<form [formGroup]="form" class="dialog-form">
+		<hub-input formControlName="title" [label]="'calendar.title' | transloco" [required]="true" />
+
+		<hub-select
+			formControlName="kind"
+			[label]="'calendar.kind' | transloco"
+			[items]="kindOptions()"
+			bindLabel="label"
+			bindValue="value"
+			[required]="true"
+		/>
+
+		<hub-select
+			formControlName="projectId"
+			[label]="'calendar.project' | transloco"
+			[items]="projectOptions()"
+			bindLabel="name"
+			bindValue="id"
+		/>
+
+		<hub-datepicker
+			formControlName="start"
+			[label]="'calendar.start' | transloco"
+			granularity="minute"
+			[required]="true"
+			[locale]="locale()"
+			[firstDayOfWeek]="1"
+			[labels]="datepickerLabels()"
+		/>
+
+		<hub-datepicker
+			formControlName="end"
+			[label]="'calendar.end' | transloco"
+			granularity="minute"
+			[required]="true"
+			[locale]="locale()"
+			[firstDayOfWeek]="1"
+			[labels]="datepickerLabels()"
+		/>
+	</form>
+</div>
+
+<div class="hub-modal__footer">
+	<button hubButton variant="ghost" color="primary" (click)="activeModal.dismiss('cancel')">
+		{{ 'common.cancel' | transloco }}
+	</button>
+	<button hubButton color="primary" [loading]="saving()" (click)="save()">
+		{{ 'common.save' | transloco }}
+	</button>
+</div>

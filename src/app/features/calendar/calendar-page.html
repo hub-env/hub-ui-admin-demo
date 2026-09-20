@@ -1,0 +1,23 @@
+<header class="page-header">
+	<div>
+		<h1>{{ 'nav.calendar' | transloco }}</h1>
+		<p>{{ 'calendar.subtitle' | transloco }}</p>
+	</div>
+</header>
+
+<hub-calendar
+	[events]="calendarEvents()"
+	[(view)]="view"
+	[(selectedDate)]="selectedDate"
+	[locale]="language()"
+	[weekStartsOn]="1"
+	variant="primary"
+	[config]="{
+		dragAndDropEnabled: true,
+		availableViews: [CalendarViewType.MONTH, CalendarViewType.WEEK, CalendarViewType.DAY],
+		dayStartHour: 7,
+		dayEndHour: 20
+	}"
+	(eventClick)="openEvent($event)"
+	(eventDrop)="onEventDrop($event)"
+/>

@@ -1,0 +1,24 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-block-size: 0;
+}
+
+.page-header {
+	margin-block-end: var(--hub-sys-gap-4);
+
+	h1 {
+		margin: 0;
+	}
+
+	p {
+		margin: var(--hub-sys-gap-1) 0 0;
+		color: var(--hub-sys-text-secondary);
+	}
+}
+
+hub-calendar {
+	flex: 1;
+	min-block-size: 0;
+}
